@@ -5,8 +5,11 @@ pub mod structs {
 }
 pub use crate::structs::*;
 
+pub extern crate rayon;
+pub use rayon::prelude::*;
+
 use std::{collections::VecDeque, sync::Mutex};
-use rayon::{iter::IterBridge, prelude::ParallelBridge};
+use rayon::iter::IterBridge;
 
 pub struct Schunks<I: Iterator> {
     inner: Mutex<I>,
